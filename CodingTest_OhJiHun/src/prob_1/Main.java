@@ -14,18 +14,25 @@ public class Main {
 			// 객체 생성
 			Prob_1 prob_1 = new Prob_1();
 			
-			// 숫자 입력
+			// validation check
 			while (true)
 			{
-				System.out.print("숫자 입력 : ");
-				prob_1.setInputNum(in.nextInt());
-				
-				if (   1      <= prob_1.getInputNum() 
-				    && 999999 >= prob_1.getInputNum())
+				try 
 				{
-					break;
-				}
-				else
+					System.out.print("숫자 입력 : ");
+					prob_1.setInputNum(Integer.parseInt(in.nextLine()));
+					
+					if (   1      <= prob_1.getInputNum() 
+					    && 999999 >= prob_1.getInputNum())
+					{
+						break;
+					}
+					else
+					{
+						System.out.println("\n입력할 숫자 n은 1 ≤ n ≤ 999,999 입니다.\n다시 입력하세요.\n");
+					}
+				} 
+				catch (NumberFormatException e) 
 				{
 					System.out.println("\n입력할 숫자 n은 1 ≤ n ≤ 999,999 입니다.\n다시 입력하세요.\n");
 				}
