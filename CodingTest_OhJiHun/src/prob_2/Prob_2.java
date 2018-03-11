@@ -2,13 +2,18 @@ package prob_2;
 
 public class Prob_2 {
 	
-	private String coordinates = ""  ;
-	private int    index       = 0   ;
-	private String stringSort  = ""  ;
-	private double doubleSort  = 0.0 ;
+	private String  coordinates ;
+	private int     index       ;  
+	private String  stringSort  ;
+	private double  doubleSort  ;
+	private boolean valChk      ;
 	
 	public Prob_2() {
-		 
+		this.coordinates  = ""  ;
+		this.index        = 0   ;
+		this.stringSort   = ""  ;
+		this.doubleSort   = 0.0 ;
+		this.valChk       = true;
 	}
 
 	public String getCoordinates() {
@@ -43,7 +48,12 @@ public class Prob_2 {
 		this.doubleSort = doubleSort;
 	}
 
+	public boolean isValChk() {
+		return valChk;
+	}
 
-	
+	public void setValChk(boolean valChk) {
+		this.valChk = valChk;
+	}
 	
 }

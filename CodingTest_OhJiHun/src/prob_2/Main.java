@@ -12,8 +12,9 @@ public class Main {
 		try
 		{
 			// 객체 생성
-			Prob_2 prob_2 = new Prob_2();
-			Calc   calc   = new Calc()  ;
+			Prob_2          prob_2 = new Prob_2()         ;
+			Calc            calc   = new Calc()           ;
+			ValidationCheck valChk = new ValidationCheck();
 			
 			// 좌표 입력
 			System.out.print("좌표 입력 : ");
@@ -22,21 +23,33 @@ public class Main {
 			// 입력받은 좌표 공백기준(" ") split
 			String arrayCoordinates[] = prob_2.getCoordinates().split(" ");
 			
+			// validation check
 			while (true)
 			{
-				if (6 == arrayCoordinates.length)
-				{
-					break;
-				}
-				else
+				// validation check method 호출
+				prob_2.setValChk(valChk.getValidationCheck(arrayCoordinates));
+
+				// validation error
+				if (false == prob_2.isValChk())
 				{
 					System.out.println("\n5개의 좌표와 기준좌표의 순번을 입력 하세요.(좌표 값은 정수, 좌표는 ()로 표현하고 빈문자열로 구분)\n");
 					System.out.print("좌표 입력 : ");
 					
+					// 재입력을 위한 초기화
+					prob_2.setCoordinates("");
+					prob_2.setValChk(true)   ;
+					valChk.setValchk(true)   ;
+					
+					// 재입력
 					prob_2.setCoordinates(in.nextLine());
 					arrayCoordinates = prob_2.getCoordinates().split(" ");
-				}
-			}
+				} // end of if
+				else
+				{
+					break;
+				} // end of else
+				
+			} // end of while
 			
 			// 결과값 정렬용 좌표배열 복사
 			String sortCoordinates [] = new String[arrayCoordinates.length];
@@ -74,7 +87,7 @@ public class Main {
 			} // end of for
 			
 			// 결과값 출력
-			System.out.print("결과       : ");
+			System.out.print("결과 : ");
 			for (int i = 0; i < sortCoordinates.length - 1; i++) 
 			{
 				System.out.print(sortCoordinates[i]);
@@ -83,7 +96,6 @@ public class Main {
 				if (i != sortCoordinates.length - 2)
 				{
 					System.out.print(" ");
-					
 				} // end of if
 				
 			} // end of for

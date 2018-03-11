@@ -2,12 +2,14 @@ package prob_1;
 
 public class Prob_1 {
 
-	private String  zeroChk  = ""   ;
-	private int     inputNum = 1    ;
-	private boolean zeroFlag = false;
-	
+	private String  zeroChk  ;
+	private int     inputNum ;
+	private boolean zeroFlag ;
+
 	public Prob_1() {
-		
+		this.zeroChk  = ""   ;
+		this.inputNum = 1    ;
+		this.zeroFlag = false;
 	}
 
 	public String getZeroChk() {
