@@ -1,0 +1,68 @@
+package prob_2;
+
+public class GetDistance {
+
+	private double distance = 0.0;
+	private int    x1       = 0  ;
+	private int    y1       = 0  ;
+	private int    x2       = 0  ;
+	private int    y2       = 0  ;
+	
+	public GetDistance() {
+		
+	}
+
+	public double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+
+	public int getX1() {
+		return x1;
+	}
+
+	public void setX1(int x1) {
+		this.x1 = x1;
+	}
+
+	public int getY1() {
+		return y1;
+	}
+
+	public void setY1(int y1) {
+		this.y1 = y1;
+	}
+
+	public int getX2() {
+		return x2;
+	}
+
+	public void setX2(int x2) {
+		this.x2 = x2;
+	}
+
+	public int getY2() {
+		return y2;
+	}
+
+	public void setY2(int y2) {
+		this.y2 = y2;
+	}
+
+	public double getDistance(String coordnates1, String coordnates2) {
+		
+		this.x1 = Integer.parseInt( coordnates1.charAt(1) + "" );
+		this.y1 = Integer.parseInt( coordnates1.charAt(3) + "" );
+		this.x2 = Integer.parseInt( coordnates2.charAt(1) + "" );
+		this.y2 = Integer.parseInt( coordnates2.charAt(3) + "" );
+		
+		// 좌표간 거리계산
+		this.distance = Math.sqrt( Math.pow((double)(this.x2-this.x1), 2) + Math.pow((double)(this.y2-this.y1), 2) );
+		
+		return this.distance;
+		
+	}
+}

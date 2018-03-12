@@ -1,0 +1,76 @@
+package prob_2;
+
+public class ValidationCheck {
+
+	private boolean valchk ;
+
+	public ValidationCheck() {
+		this.valchk = true ;
+	}
+	
+	public void setValchk(boolean valchk) {
+		this.valchk = valchk;
+	}
+
+	public boolean getValidationCheck(String[] arrayCoordinates)
+	{
+		for (int i = 0; i < arrayCoordinates.length - 1; i++) 
+		{
+			System.out.println("i : " + i);
+			System.out.println(arrayCoordinates[i]);
+			if (   i != arrayCoordinates.length - 1
+				&& 5 != arrayCoordinates[i].length())
+			{
+				this.valchk = false;
+				break;
+			} // end of if
+			else
+			{
+				for (int j = 0; j < arrayCoordinates[i].length(); j++) 
+				{
+					if (   0 == j 
+						&& arrayCoordinates[i].charAt(j) != '(')
+					{
+						this.valchk = false;
+						break;
+					}
+					else if (   1 == j 
+							 && !Character.isDigit(arrayCoordinates[i].charAt(j)))
+					{
+						this.valchk = false;
+						break;
+					}
+					else if (   2 == j 
+							 && arrayCoordinates[i].charAt(j) != ',')
+					{
+						this.valchk = false;
+						break;
+					}
+					else if (   3 == j 
+							 && !Character.isDigit(arrayCoordinates[i].charAt(j)))
+					{
+						this.valchk = false;
+						break;
+					}
+					else if (   4 == j 
+							 && arrayCoordinates[i].charAt(j) != ')')
+					{
+						this.valchk = false;
+						break;
+					}
+					
+				} // end of for
+				
+				if (false == this.valchk)
+				{
+					break;
+				} // end of if
+				
+			} // end of else
+			
+		} // end of for
+		
+		return this.valchk;
+	}
+	
+}

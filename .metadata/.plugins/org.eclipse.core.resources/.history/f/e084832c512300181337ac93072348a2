@@ -1,0 +1,18 @@
+package prob_2;
+
+public class Prob_2 {
+	
+	String coordinates ;
+	int    index       ;
+	String stringSort  ;
+	double doubleSort  ;
+	
+	public Prob_2() {
+		coordinates = ""  ;
+		index       = 0   ;
+		stringSort  = ""  ;
+		doubleSort  = 0.0 ;
+	}
+	
+	
+}

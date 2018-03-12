@@ -1,0 +1,19 @@
+package prob_2;
+
+public class GetDistance {
+
+	public static double getDistance(String arg1, String arg2) {
+		
+		double distance = 0.0;
+		int x1 = Integer.parseInt( arg1.charAt(1) + "" );
+		int y1 = Integer.parseInt( arg1.charAt(3) + "" );
+		int x2 = Integer.parseInt( arg2.charAt(1) + "" );
+		int y2 = Integer.parseInt( arg2.charAt(3) + "" );
+		
+		// 좌표간 거리계산
+		distance = Math.sqrt( Math.pow((double)(x2-x1), 2) + Math.pow((double)(y2-y1), 2) );
+		
+		return distance;
+		
+	}
+}

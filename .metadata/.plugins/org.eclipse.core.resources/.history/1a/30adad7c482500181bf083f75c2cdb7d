@@ -1,0 +1,93 @@
+package prob_2;
+
+public class ValidationCheck {
+
+	private boolean valchk ;
+
+	public ValidationCheck() {
+		this.valchk = true ;
+	}
+	
+	public void setValchk(boolean valchk) {
+		this.valchk = valchk;
+	}
+
+	public boolean getValidationCheck(String[] arrayCoordinates)
+	{
+		if (6 == arrayCoordinates.length)
+		{
+			for (int i = 0; i < arrayCoordinates.length; i++) 
+			{
+				for (int j = 0; j < arrayCoordinates[i].length(); j++) {
+					System.out.println(arrayCoordinates[i].charAt(j));
+				}
+				if (   i != arrayCoordinates.length - 1
+					&& 5 != arrayCoordinates[i].length())
+				{
+					this.valchk = false;
+					break;
+				} // end of if
+				else
+				{
+					switch (i) 
+					{
+						case 0:
+							if (arrayCoordinates[i].charAt(0) != '(')
+							{
+								this.valchk = false;
+								break;
+							}
+							
+						case 1:
+							if (!Character.isDigit(arrayCoordinates[i].charAt(1)))
+							{
+								this.valchk = false;
+								break;
+							}
+							
+						case 2:
+							if (arrayCoordinates[i].charAt(2) != ',')
+							{
+								this.valchk = false;
+								break;
+							}
+							
+						case 3:
+							if (!Character.isDigit(arrayCoordinates[i].charAt(3)))
+							{
+								this.valchk = false;
+								break;
+							}
+							
+						case 4:
+							if (arrayCoordinates[i].charAt(4) != ')')
+							{
+								this.valchk = false;
+								break;
+							}
+							
+						default:
+							break;
+					} // end of switch
+					
+				} // end of else
+				
+			} // end of for
+		
+		} // end of if
+		else
+		{
+//			System.out.println("\n5개의 좌표와 기준좌표의 순번을 입력 하세요.(좌표 값은 정수, 좌표는 ()로 표현하고 빈문자열로 구분)\n");
+//			System.out.print("좌표 입력 : ");
+//			
+//			prob_2.setCoordinates("");
+//			prob_2.setCoordinates(in.nextLine());
+//			arrayCoordinates = prob_2.getCoordinates().split(" ");
+			valchk = false;
+		} // end of else
+		
+		
+		return this.valchk;
+	}
+	
+}
